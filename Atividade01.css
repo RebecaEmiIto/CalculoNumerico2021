@@ -1,0 +1,37 @@
+body{
+    margin: 0px;
+    text-align: center;
+    background-color: #F8F5F2;
+}
+
+#calc-but{
+    margin-top: 30px;
+    border-radius: 25px;
+    size: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+#titulo{
+    margin-top: 0px;
+    padding-top: 15px;
+    height: 60px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+
+}
+
+#entradaVal{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+#entradaX{
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 5px;
+    font-size: 20px;
+}
