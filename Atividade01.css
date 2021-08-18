@@ -5,17 +5,28 @@ body{
 }
 
 #calc-but{
-    margin-top: 30px;
+    margin-top: 12px;
     border-radius: 25px;
     size: 100px;
-    width: 100px;
-    height: 50px;
+    font-size: 20px;
+    width: 150px;
+    height: 48px;
+}
+
+#cabecalho{
+    background-color: #008b8b;
 }
 
 #titulo{
     margin-top: 0px;
     padding-top: 15px;
-    height: 60px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+}
+
+#grupo{
+    padding-bottom: 15px;
     background-color: #008b8b;
     text-align: center;
     color: white;
