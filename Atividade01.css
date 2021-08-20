@@ -42,7 +42,20 @@ body{
 
 #entradaX{
     padding: 10px;
-    padding-left: 25px;
-    padding-right: 5px;
     font-size: 20px;
+}
+
+#tabelaResultado{
+    width: 50%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tiposValores{
+    text-align: left;
+    padding: 8px;
+    color: white;
+    background-color: #008b8b;
+    border: 1px solid  #008b8b; 
 }
