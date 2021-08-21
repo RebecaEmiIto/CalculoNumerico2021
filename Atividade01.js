@@ -39,15 +39,11 @@ function ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, val_x){
  */
 function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
     
+    var intervalo = "0";
     var val = 1;
     var cont = 0;
     var xA = 0;
     var xB = 20;
-
-    var intervalo = [];
-    var valores = [];
-    var indice = [];
-    
     
     var a = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xA));
     var b = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xB));
@@ -60,50 +56,39 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
 
     do{
         cont += 1;
-        indice.push(cont);
-
-        var AB = (("[" + xA + "; " + xB + "]").toString());
-        intervalo.push(AB);
-
+        
+        var intervalo = (("[" + xA + ", " + xB + "]").toString());
+        
         medAB = (xA + xB) / 2;
         
-        val = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, medAB));
-        valores.push(val);
-   
+        val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, medAB);
+
+        addNaTabela(intervalo, val, cont);
+        
         if(val < 0){
             xA = val;
             
         }else if(val > 0){
             xB = val;
         }
-        
-    }while(b - a < epsilon || val != 0 || cont <= 5);
-    
-    //document.getElementById("Resultado").innerHTML = intervalo;    
-    addNaTabela(intervalo, val, cont);
+
+    }while((b - a)/2 < epsilon || val != 0 || cont <= 5);
+
 }
 
-/**
- * Adiciona elementos na tabela
- * 
- * @param {*} intervalo 
- * @param {*} valores 
- * @param {*} indice 
- */
 function addNaTabela(intervalo, valores, indice){
+    document.getElementById("Resultado").innerHTML = intervalo;    
+    //for(i = 0; i < intervalo.length; i++){
+    var table = document.getElementById("table-body");
+    var totalRowCount = table.rows.length;
+    var row = table.insertRow(totalRowCount);
     
-    for(i = 0; i < intervalo.length; i++){
-        
-        var table = document.getElementById("tabelaResultado");
-        var totalRowCount = table.rows.length;
-        var row = table.insertRow(totalRowCount);
-        
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
 
-        cell1.innerHTML = indice[i];
-        cell2.innerHTML = valores[i];
-        cell3.innerHTML = intervalo[i];
-    }
+    cell1.innerHTML = indice;
+    cell2.innerHTML = valores;
+    cell3.innerHTML = intervalo;
+    //}
 }
