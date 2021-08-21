@@ -12,8 +12,6 @@ function Calcular(){
     const epsilon = document.getElementById("epsilon").value;
     
     bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon);
-    //var a = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, 4);
-    //document.getElementById("Resultado").innerHTML = a;
     
 }
 
@@ -42,7 +40,7 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
     var intervalo = "0";
     var val = 1;
     var cont = 0;
-    var xA = 0;
+    var xA = -1;
     var xB = 20;
     
     var a = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xA));
@@ -57,7 +55,7 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
     do{
         cont += 1;
         
-        var intervalo = (("[" + xA + ", " + xB + "]").toString());
+        intervalo = (("[" + xA + ", " + xB + "]").toString());
         
         medAB = (xA + xB) / 2;
         
@@ -66,19 +64,25 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
         addNaTabela(intervalo, val, cont);
         
         if(val < 0){
-            xA = val;
+            xA = medAB;
             
         }else if(val > 0){
-            xB = val;
+            xB = medAB;
+        }else if(val == 0){
+            break;
         }
 
-    }while((b - a)/2 < epsilon || val != 0 || cont <= 5);
-
+    }while((b - a) < epsilon || cont < 10);
 }
 
+/**
+ * Adiciona elementos na tabela
+ * 
+ * @param {*} intervalo 
+ * @param {*} valores 
+ * @param {*} indice 
+ */
 function addNaTabela(intervalo, valores, indice){
-    document.getElementById("Resultado").innerHTML = intervalo;    
-    //for(i = 0; i < intervalo.length; i++){
     var table = document.getElementById("table-body");
     var totalRowCount = table.rows.length;
     var row = table.insertRow(totalRowCount);
@@ -90,5 +94,4 @@ function addNaTabela(intervalo, valores, indice){
     cell1.innerHTML = indice;
     cell2.innerHTML = valores;
     cell3.innerHTML = intervalo;
-    //}
 }

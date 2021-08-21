@@ -53,9 +53,14 @@ body{
 }
 
 #tiposValores{
-    text-align: left;
+    text-align: auto;
     padding: 8px;
     color: white;
     background-color: #008b8b;
     border: 1px solid  #008b8b; 
+}
+
+#table-body{
+    padding: 8px;
+    border-bottom: 1px solid rgb(109, 165, 167);
 }

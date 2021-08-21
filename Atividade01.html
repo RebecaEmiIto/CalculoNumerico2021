@@ -1,75 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Atividade01.css" rel="stylesheet">
-    <script type="text/javascript" src="Atividade01.js"></script>
-    <title>Atividade 01</title>
-</head>
-<body>
-    <div id="cabecalho">
-        <h1 id="titulo">Atividade 01 - Método da bissecção para zeros de funções</h1>
-        <p id="grupo">|| Alunas: Natalia Kahori Kaneshima & Rebeca Emi Ito || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
-    </div>
-    
-    <label id = "entradaVal" style="padding-left: 0px;" for="funcao">【 f(x) = </label>
-
-    <label id = "entradaX" for="x5">
-        <input type="number" id="x5" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁵
-    </label>
-    
-    
-    <label id="mais" style="font-size: 20px;"> + </label>
-
-    <label id = "entradaX" for="x4">
-        <input type="number" id="x4" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁴
-    </label>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Atividade01.css" rel="stylesheet">
+        <script type="text/javascript" src="Atividade01.js"></script>
+        <title>Atividade 01</title>
+    </head>
+    <body>
+        <div id="cabecalho">
+            <h1 id="titulo">Atividade 01 - Método da bissecção para zeros de funções</h1>
+            <p id="grupo">|| Alunas: Natalia Kahori Kaneshima & Rebeca Emi Ito || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
+        </div>
         
-    <label id="mais" style="font-size: 20px;"> + </label>
-    
-    <label id = "entradaX" for="x3">
-        <input type="number" id="x3" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X³
-    </label>
-    
-    <label id="mais" style="font-size: 20px;"> + </label>
-    
-    <label id = "entradaX" for="x2">
-        <input type="number" id="x2" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X²
-    </label>
-    
-    <label id="mais" style="font-size: 20px;"> + </label>
-    
-    <label id = "entradaX" for="x1">
-        <input type="number" id="x1" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X¹
-    </label>
+        <label id = "entradaVal" style="padding-left: 0px;" for="funcao">【 f(x) = </label>
 
-    <label id="mais" style="font-size: 20px;"> + </label>
-    
-    <label id = "entradaX" for="x0">
-        <input type="number" id="x0" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0"> 】
-    </label>
-    
-    <label id = "entradaVal" for="epsilon">Épsilon:</label>
-    <input type="number" id="epsilon" name="epsilon" style="width: 200px; height: 25px; font-size: 20px;" value="0">
-    
-    <br><br>
-    
-    <button onclick="Calcular()" id="calc-but">Calcular</button>
-    
-    <p id="Resultado"></p>
-    <br>
-    <table id="tabelaResultado">
-        <thead class="thead"> 
-            <tr>
-              <th id="tiposValores" scope="tabela">Índice</th>
-              <th id="tiposValores" scope="tabela">Valor</th>
-              <th id="tiposValores" scope="tabela">Intervalo</th>
-            </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-    </table>
-</body>
+        <label id = "entradaX" for="x5">
+            <input type="number" id="x5" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁵
+        </label>
+        
+        
+        <label id="mais" style="font-size: 20px;"> + </label>
 
+        <label id = "entradaX" for="x4">
+            <input type="number" id="x4" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁴
+        </label>
+            
+        <label id="mais" style="font-size: 20px;"> + </label>
+        
+        <label id = "entradaX" for="x3">
+            <input type="number" id="x3" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X³
+        </label>
+        
+        <label id="mais" style="font-size: 20px;"> + </label>
+        
+        <label id = "entradaX" for="x2">
+            <input type="number" id="x2" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X²
+        </label>
+        
+        <label id="mais" style="font-size: 20px;"> + </label>
+        
+        <label id = "entradaX" for="x1">
+            <input type="number" id="x1" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X¹
+        </label>
+
+        <label id="mais" style="font-size: 20px;"> + </label>
+        
+        <label id = "entradaX" for="x0">
+            <input type="number" id="x0" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0"> 】
+        </label>
+        
+        <label id = "entradaVal" for="epsilon">Épsilon:</label>
+        <input type="number" id="epsilon" name="epsilon" style="width: 200px; height: 25px; font-size: 20px;" value="0">
+        
+        <br><br>
+        
+        <button onclick="Calcular()" id="calc-but">Calcular</button>
+        
+        <p id="Resultado"></p>
+        <br>
+        <table id="tabelaResultado">
+            <thead class="thead"> 
+                <tr>
+                <th id="tiposValores" scope="tabela">Índice</th>
+                <th id="tiposValores" scope="tabela">Valor</th>
+                <th id="tiposValores" scope="tabela">Intervalo</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </body>
 </html>
