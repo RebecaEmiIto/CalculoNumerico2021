@@ -47,9 +47,9 @@ body{
 
 #tabelaResultado{
     width: 50%;
-    border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid rgb(109, 165, 167);
 }
 
 #tiposValores{
@@ -62,5 +62,5 @@ body{
 
 #table-body{
     padding: 8px;
-    border-bottom: 1px solid rgb(109, 165, 167);
+    border: 1px solid rgb(109, 165, 167);
 }

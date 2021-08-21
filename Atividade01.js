@@ -68,11 +68,12 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
             
         }else if(val > 0){
             xB = medAB;
+            
         }else if(val == 0){
             break;
         }
 
-    }while((b - a) < epsilon || cont < 10);
+    }while((b - a) / 2 < epsilon || cont < 13);
 }
 
 /**
