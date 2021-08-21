@@ -13,7 +13,8 @@ function Calcular(){
     
     bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon);
     //var a = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, 4);
-
+    //document.getElementById("Resultado").innerHTML = a;
+    
 }
 
 /**
@@ -29,7 +30,6 @@ function ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, val_x){
     var x5 = parseFloat(xCinco* Math.pow(val_x, 5));
     
     var resultado = x5 + x4 + x3 + x2 + x1 + x0;
-    document.getElementById("Resultado").innerHTML = resultado;
     return resultado;
 
 }
@@ -38,61 +38,65 @@ function ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, val_x){
  * Faz o cálculo da Bissecção
  */
 function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
-
-    var x = 0;
-    var cont = 0;
-    
-    var listaIntervalo = [];
-    var valores = [];
-    var indice = [];
-        
-    var b = 0;
-    
-    var a = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
-    if (a >= 0){
-        b = a;
-        
-    }else{
-        do{
-            var c = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
-            x += 1;
-            b = c
-        }while(c <= 0);
-    }
     
     var val = 1;
+    var cont = 0;
+    var xA = 0;
+    var xB = 20;
+
+    var intervalo = [];
+    var valores = [];
+    var indice = [];
     
+    
+    var a = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xA));
+    var b = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xB));
+
+    if(a >= b){
+        var c = a;
+        a = b;
+        b = c;
+    }
+
     do{
         cont += 1;
-        
         indice.push(cont);
-        listaIntervalo.push(("[ " + a + ", " + b + " ]").toString);
+
+        var AB = (("[" + xA + "; " + xB + "]").toString());
+        intervalo.push(AB);
+
+        medAB = (xA + xB) / 2;
         
-        medAB = (a + b) / 2;
-        
-        val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
-        
+        val = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, medAB));
         valores.push(val);
-        
+   
         if(val < 0){
-            a = val;
+            xA = val;
             
         }else if(val > 0){
-            b = val;
+            xB = val;
         }
-
-    }while(b - a < epsilon || val == 0 || cont == 5);
+        
+    }while(b - a < epsilon || val != 0 || cont <= 5);
     
-    addNaTabela();
+    document.getElementById("Resultado").innerHTML = intervalo;    
+    //addNaTabela(intervalo, val, cont);
 }
 
-function addNaTabela(){
-    removeRows();
-    for(i = 0; i < listaIntervalo.length; i++){
-
+/**
+ * Adiciona elementos na tabela
+ * 
+ * @param {*} intervalo 
+ * @param {*} valores 
+ * @param {*} indice 
+ */
+function addNaTabela(intervalo, valores, indice){
+    
+    for(i = 0; i < intervalo.length; i++){
+        
         var table = document.getElementById("tabelaResultado");
-        var ind = table.heigh;
-        var row = table.insertRow(ind);
+        var totalRowCount = table.rows.length;
+        var row = table.insertRow(totalRowCount);
         
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -100,6 +104,6 @@ function addNaTabela(){
 
         cell1.innerHTML = indice[i];
         cell2.innerHTML = valores[i];
-        cell2.innerHTML = listaIntervalo[i];
+        cell3.innerHTML = intervalo[i];
     }
 }
