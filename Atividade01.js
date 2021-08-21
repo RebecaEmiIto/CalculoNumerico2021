@@ -11,9 +11,9 @@ function Calcular(){
     const xZero = document.getElementById("x0").value;
     const epsilon = document.getElementById("epsilon").value;
     
+    bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon);
     //var a = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, 4);
 
-    //document.getElementById("Resultado").innerHTML = b;
 }
 
 /**
@@ -27,30 +27,31 @@ function ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, val_x){
     var x3 = parseFloat(xTres* Math.pow(val_x, 3));
     var x4 = parseFloat(xQuatro* Math.pow(val_x, 4));
     var x5 = parseFloat(xCinco* Math.pow(val_x, 5));
-
-    var resultadoEquacao = x5 + x4 + x3 + x2 + x1 + x0;
-    return resultadoEquacao;
     
+    var resultado = x5 + x4 + x3 + x2 + x1 + x0;
+    document.getElementById("Resultado").innerHTML = resultado;
+    return resultado;
+
 }
 
 /**
- *  Encontra a média entre os valores de a e b
+ * Faz o cálculo da Bissecção
  */
-function mediaAB(a, b){
-    return (a + b) / 2;
-}
+function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
 
-function bisseccao(){
     var x = 0;
+    var cont = 0;
+    
     var listaIntervalo = [];
     var valores = [];
-
+    var indice = [];
+        
     var b = 0;
     
     var a = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
     if (a >= 0){
         b = a;
-    
+        
     }else{
         do{
             var c = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
@@ -59,21 +60,46 @@ function bisseccao(){
         }while(c <= 0);
     }
     
+    var val = 1;
+    
     do{
+        cont += 1;
+        
+        indice.push(cont);
         listaIntervalo.push(("[ " + a + ", " + b + " ]").toString);
         
         medAB = (a + b) / 2;
         
-        var val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
-
+        val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, x);
+        
         valores.push(val);
-
+        
         if(val < 0){
             a = val;
-
+            
         }else if(val > 0){
             b = val;
         }
 
-    }while(b - a < epsilon || val == 0);
+    }while(b - a < epsilon || val == 0 || cont == 5);
+    
+    addNaTabela();
+}
+
+function addNaTabela(){
+    removeRows();
+    for(i = 0; i < listaIntervalo.length; i++){
+
+        var table = document.getElementById("tabelaResultado");
+        var ind = table.heigh;
+        var row = table.insertRow(ind);
+        
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = indice[i];
+        cell2.innerHTML = valores[i];
+        cell2.innerHTML = listaIntervalo[i];
+    }
 }
