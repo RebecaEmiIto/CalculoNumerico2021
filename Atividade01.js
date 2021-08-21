@@ -79,8 +79,8 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
         
     }while(b - a < epsilon || val != 0 || cont <= 5);
     
-    document.getElementById("Resultado").innerHTML = intervalo;    
-    //addNaTabela(intervalo, val, cont);
+    //document.getElementById("Resultado").innerHTML = intervalo;    
+    addNaTabela(intervalo, val, cont);
 }
 
 /**
