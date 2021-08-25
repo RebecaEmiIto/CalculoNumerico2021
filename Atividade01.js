@@ -61,7 +61,7 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
         
         val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, medAB);
 
-        addNaTabela(intervalo, val, cont);
+        addNaTabela(intervalo, val, medAB, cont);
         
         if(val < 0){
             xA = medAB;
@@ -80,10 +80,11 @@ function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
  * Adiciona elementos na tabela
  * 
  * @param {*} intervalo 
- * @param {*} valores 
+ * @param {*} valores
+ * @param {*} x 
  * @param {*} indice 
  */
-function addNaTabela(intervalo, valores, indice){
+function addNaTabela(intervalo, valores, x, indice){
     var table = document.getElementById("table-body");
     var totalRowCount = table.rows.length;
     var row = table.insertRow(totalRowCount);
@@ -91,8 +92,10 @@ function addNaTabela(intervalo, valores, indice){
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
     cell1.innerHTML = indice;
     cell2.innerHTML = valores;
-    cell3.innerHTML = intervalo;
+    cell3.innerHTML = x;
+    cell4.innerHTML = intervalo;
 }
