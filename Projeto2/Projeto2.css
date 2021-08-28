@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+    text-align: center;
+    background-color: #F8F5F2;
+}
+
+#cabecalho{
+    background-color: #008b8b;
+}
+
+#titulo{
+    margin-top: 0px;
+    padding-top: 15px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+}
+
+#grupo{
+    padding-bottom: 15px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+
+}
+
+#entrada{
+    padding: 10px;
+    font-size: 20px;
+}
