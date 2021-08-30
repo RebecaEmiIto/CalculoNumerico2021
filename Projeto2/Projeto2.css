@@ -28,3 +28,12 @@ body{
     padding: 10px;
     font-size: 20px;
 }
+
+#calc-but{
+    margin-top: 6px;
+    border-radius: 25px;
+    size: 100px;
+    font-size: 20px;
+    width: 150px;
+    height: 48px;
+}
