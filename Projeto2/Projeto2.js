@@ -42,7 +42,6 @@ function Resolver(linha1, linha2, linha3){
             
             for (var l = 0; l < 4; l++){
                 matriz[k][l] = matriz[k][l] * pivo;
-                matriz[i][l] = matriz[i][l] * pivo;
                 matriz[i][j] = 0;
             }
             addNaTabela(pivo, matriz);
