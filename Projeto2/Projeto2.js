@@ -41,8 +41,9 @@ function Resolver(linha1, linha2, linha3){
             pivo = -(b/a);
             
             for (var l = 0; l < 4; l++){
-                matriz[k][l] = matriz[k][l] * pivo;
-                matriz[i][j] = 0;
+                var resultado = parseFloat(matriz[i][l]) + parseFloat(matriz[k][l] * pivo);
+                matriz[i][l] = parseFloat(resultado);
+                //matriz[i][j] = 0;
             }
             addNaTabela(pivo, matriz);
         }
