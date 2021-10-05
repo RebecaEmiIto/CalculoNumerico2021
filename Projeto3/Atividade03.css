@@ -1,0 +1,66 @@
+body{
+    margin: 0px;
+    text-align: center;
+    background-color: #F8F5F2;
+}
+
+#calc-but{
+    margin-top: 6px;
+    border-radius: 25px;
+    size: 100px;
+    font-size: 20px;
+    width: 150px;
+    height: 48px;
+}
+
+#cabecalho{
+    background-color: #008b8b;
+}
+
+#titulo{
+    margin-top: 0px;
+    padding-top: 15px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+}
+
+#grupo{
+    padding-bottom: 15px;
+    background-color: #008b8b;
+    text-align: center;
+    color: white;
+
+}
+
+#entradaVal{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+#entradaX{
+    padding: 10px;
+    font-size: 20px;
+}
+
+#tabelaResultado{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(109, 165, 167);
+}
+
+#tiposValores{
+    text-align: auto;
+    padding: 8px;
+    color: white;
+    background-color: #008b8b;
+    border: 1px solid  #008b8b; 
+}
+
+#table-body{
+    padding: 8px;
+    border: 1px solid rgb(109, 165, 167);
+}
