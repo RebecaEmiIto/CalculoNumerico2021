@@ -1,90 +1,82 @@
 /**
  *  Pega os valores dos inputs colocados pelo usuário
+ * 
+ * const epsilon = document.getElementById("epsilon").value;
  */
 function Calcular(){
 
-    const xUm = document.getElementById("x1").value;
-    const xDois = document.getElementById("x2").value;
-    const xTres = document.getElementById("x3").value;
-    const xQuatro = document.getElementById("x4").value;
-    const xCinco = document.getElementById("x5").value;
-    const xZero = document.getElementById("x0").value;
-    const epsilon = document.getElementById("epsilon").value;
+    const xZero = document.getElementById("xZero").value;
+    const yZero = document.getElementById("yZero").value;
     
-    bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon);
+    const xUm = document.getElementById("xUm").value;
+    const yUm = document.getElementById("yUm").value;
     
+    const xDois = document.getElementById("xDois").value;
+    const yDois = document.getElementById("yDois").value;
+    
+    lagrange(xZero, yZero, xUm, yUm, xDois, yDois); 
 }
 
-/**
- *  Realiza o calculo da função
- */
-function ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, val_x){
-    
-    var x0 = parseFloat(xZero);
-    var x1 = parseFloat(xUm * Math.pow(val_x, 1));
-    var x2 = parseFloat(xDois* Math.pow(val_x, 2));
-    var x3 = parseFloat(xTres* Math.pow(val_x, 3));
-    var x4 = parseFloat(xQuatro* Math.pow(val_x, 4));
-    var x5 = parseFloat(xCinco* Math.pow(val_x, 5));
-    
-    var resultado = x5 + x4 + x3 + x2 + x1 + x0;
-    return resultado;
-
-}
 
 /**
- * Faz o cálculo da Bissecção
+ * Faz o cálculo da Lagrange
+ * 
+ * P(x) = f(x0) * L0(0) + f(x1) * L1(0) + f(x2) * L2(x)  
+ * 
+ * L0(x) = ((x - x1) * (x - x2)) / ((x0 - x1) * (x0 - x2))
+ * L1(x) = ((x - x0) * (x - x2)) / ((x1 - x0) * (x1 - x2))
+ * L2(x) = ((x - x0) * (x - x1)) / ((x2 - x0) * (x2 - x1))
+ * 
+ * var x2 = parseFloat(xDois* Math.pow(val_x, 2));
  */
-function bisseccao(xZero, xUm, xDois, xTres, xQuatro, xCinco, epsilon){
+function lagrange(xZero, yZero, xUm, yUm, xDois, yDois){
     
-    var intervalo = "0";
-    var val = 1;
-    var cont = 0;
-    var xA = -1;
-    var xB = 20;
+    var p = 0;
+    var x = "x";
     
-    var a = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xA));
-    var b = parseFloat(ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, xB));
-
-    if(a >= b){
-        var c = a;
-        a = b;
-        b = c;
-    }
-
-    do{
-        cont += 1;
-        
-        intervalo = (("[" + xA + ", " + xB + "]").toString());
-        
-        medAB = (xA + xB) / 2;
-        
-        val = ResolveEquacao(xZero, xUm, xDois, xTres, xQuatro, xCinco, medAB);
-
-        addNaTabela(intervalo, val, medAB, cont);
-        
-        if(val < 0){
-            xA = medAB;
-            
-        }else if(val > 0){
-            xB = medAB;
-            
-        }else if(val == 0){
-            break;
-        }
-
-    }while((b - a) / 2 < epsilon || cont < 13);
+    var a1 = -xDois -xUm;
+    var a2 = -xUm * -xDois;
+    var a3 = parseFloat(Math.pow(xZero, 2)) + (xZero *-xDois) + (-xUm * xZero) + (-xUm * -xDois);
+    var l0 = yZero + "x² + " + (yZero * a1) + "x + " + (yZero * a2) + " / " + a3;
+    var auxA = "( " + xZero + ", " + yZero + " )";
+    
+    addNaTabela(xZero, l0, yZero, auxA);
+    
+    var b1 = -xZero -xDois;
+    var b2 = -xZero * -xDois;
+    var b3 = parseFloat(Math.pow(xUm, 2)) + (xUm *-xDois) + (-xZero * xUm) + (-xZero * -xDois);
+    var l1 = yUm + "x² + " + (yUm * b1) + "x + " + (yUm * b2) + " / " + b3;
+    var auxB = "( " + xUm + ", " + yUm + " )";
+    
+    addNaTabela(xUm, l1, yUm, auxB);
+    
+    var c1 = -xZero -xUm;
+    var c2 = -xZero * -xUm;
+    var c3 = parseFloat(Math.pow(xDois, 2)) + (xDois *-xUm) + (-xZero * xDois) + (-xZero * -xUm);
+    var l2 = yDois + "x² + " + (yDois * c1) + "x + " + (yDois * c2) + " / " + c3;
+    var auxC = "( " + xDois + ", " + yDois + " )";
+    
+    addNaTabela(xDois, l2, yDois, auxC);
+    
+    var d1 = a3 * b3 * c3;
+    var d2 = (yZero * (b3 * c3)) + (yUm * (a3 * c3)) + (yDois * (a3 * b3)) + "x² + ";
+    var d3 = ((yZero * a1) * d1) + ((yUm * b1) * d1) + ((yDois * c1) * d1) + "x + ";
+    var d4 = ((yZero * a2) * d1) + ((yUm * b2) * d1) + ((yDois * c2) * d1);
+    p = d2 + d3 + d4 + " / " + d1;
+    document.getElementById("teste").innerHTML = p;
 }
 
 /**
  * Adiciona elementos na tabela
  * 
- * @param {*} intervalo 
+ * @param {*} x1 
+ * @param {*} p
+ * @param {*} f 
  * @param {*} valores
- * @param {*} x 
- * @param {*} indice 
+ * 
+ * 
  */
-function addNaTabela(intervalo, valores, x, indice){
+function addNaTabela(x1, p, f, valores){
     var table = document.getElementById("table-body");
     var totalRowCount = table.rows.length;
     var row = table.insertRow(totalRowCount);
@@ -94,8 +86,8 @@ function addNaTabela(intervalo, valores, x, indice){
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = indice;
-    cell2.innerHTML = valores;
-    cell3.innerHTML = x;
-    cell4.innerHTML = intervalo;
+    cell1.innerHTML = x1;
+    cell2.innerHTML = p;
+    cell3.innerHTML = f;
+    cell4.innerHTML = valores;
 }

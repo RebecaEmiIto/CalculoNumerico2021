@@ -4,69 +4,57 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="Atividade01.css" rel="stylesheet">
-        <script type="text/javascript" src="Atividade01.js"></script>
-        <title>Atividade 01</title>
+        <link href="Atividade03.css" rel="stylesheet">
+        <script type="text/javascript" src="Atividade03.js"></script>
+        <title>Atividade 03</title>
     </head>
     <body>
         <div id="cabecalho">
-            <h1 id="titulo">Atividade 01 - Método da bissecção para zeros de funções</h1>
+            <h1 id="titulo">Atividade 03 - Forma de Lagrange</h1>
             <p id="grupo">|| Alunas: Natalia Kahori Kaneshima & Rebeca Emi Ito || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
         </div>
         
-        <label id = "entradaVal" style="padding-left: 0px;" for="funcao">【 f(x) = </label>
-
-        <label id = "entradaX" for="x5">
-            <input type="number" id="x5" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁵
+        <label id = "entradaX" for="xZero">x0:
+            <input type="number" id="xZero" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">,
         </label>
         
-        
-        <label id="mais" style="font-size: 20px;"> + </label>
-
-        <label id = "entradaX" for="x4">
-            <input type="number" id="x4" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X⁴
-        </label>
-            
-        <label id="mais" style="font-size: 20px;"> + </label>
-        
-        <label id = "entradaX" for="x3">
-            <input type="number" id="x3" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X³
-        </label>
-        
-        <label id="mais" style="font-size: 20px;"> + </label>
-        
-        <label id = "entradaX" for="x2">
-            <input type="number" id="x2" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X²
-        </label>
-        
-        <label id="mais" style="font-size: 20px;"> + </label>
-        
-        <label id = "entradaX" for="x1">
-            <input type="number" id="x1" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">X¹
+        <label id = "entradaX" for="yZero">y0:
+            <input type="number" id="yZero" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="2">
         </label>
 
-        <label id="mais" style="font-size: 20px;"> + </label>
-        
-        <label id = "entradaX" for="x0">
-            <input type="number" id="x0" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0"> 】
+        <br><br>
+
+        <label id = "entradaX" for="xUm">x1:
+            <input type="number" id="xUm" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="0">,
         </label>
         
-        <label id = "entradaVal" for="epsilon">Épsilon:</label>
-        <input type="number" id="epsilon" name="epsilon" style="width: 200px; height: 25px; font-size: 20px;" value="0">
+        <label id = "entradaX" for="yUm">y1:
+            <input type="number" id="yUm" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">
+        </label>
         
         <br><br>
+
+        <label id = "entradaX" for="xDois">x2:
+            <input type="number" id="xDois" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="4">,
+        </label>
         
+        <label id = "entradaX" for="yDois">y2:
+            <input type="number" id="yDois" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="1">
+        </label>
+
+        <br><br>
+
         <button onclick="Calcular()" id="calc-but">Calcular</button>
-        
-        <p id="Resultado"></p>
-        <br>
+        <p id="resultado">Resultado</p>
+        <p id="teste"></p>
+        <hr>
         <table id="tabelaResultado">
             <thead class="thead"> 
                 <tr>
-                <th id="tiposValores" scope="tabela">Índice</th>
-                <th id="tiposValores" scope="tabela">f(x)</th>
-                <th id="tiposValores" scope="tabela">x</th>
-                <th id="tiposValores" scope="tabela">Intervalo</th>
+                <th id="tiposValores" scope="tabela">x1</th>
+                <th id="tiposValores" scope="tabela">P(x)</th>
+                <th id="tiposValores" scope="tabela">f(xi)</th>
+                <th id="tiposValores" scope="tabela">(x, y)</th>
                 </tr>
             </thead>
             <tbody id="table-body"></tbody>

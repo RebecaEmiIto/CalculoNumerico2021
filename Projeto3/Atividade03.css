@@ -64,3 +64,22 @@ body{
     padding: 8px;
     border: 1px solid rgb(109, 165, 167);
 }
+
+#resultado{
+    text-align: auto;
+    border: white;
+    border-style: double;
+    border-width: 10px;
+    color: white;
+    background-color: #008b8b;
+    padding-top: 10px;
+    margin: 10px;
+    margin-left: 339px;
+    margin-right: 339px;
+    font-size: 25px;
+    height: 40px;
+}
+
+#teste{
+    font-size: 25px;
+}
