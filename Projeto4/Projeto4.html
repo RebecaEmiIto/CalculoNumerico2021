@@ -10,8 +10,32 @@
 </head>
 <body>
     <div id="cabecalho">
-        <h1 id="titulo">Projeto 04 - Regras do Trapézios</h1>
-        <p id="grupo">|| Alunas: Natalia Kahori Kaneshima, Rebeca Emi Ito & Wellington Joji Endo || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
+        <h1 id="titulo">Projeto 04 - Regra do Trapézio</h1>
+        <p id="grupo">|| Alunas(o): Natalia Kahori Kaneshima, Rebeca Emi Ito & Wellington Joji Endo || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
     </div>
+
+    <label id = "entradaX" for="xZero">f(x)dx = 
+        <input type="number" id="xZero" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">,
+    </label>
+
+    <label id = "entradaX" for="x5">f(x) = x⁵
+        <input type="number" id="x5" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">,
+    </label>
+    
+    <button onclick="Calcular()" id="calc-but">Calcular</button>
+    <p id="resultado">Resultado</p>
+    <p id="teste"></p>
+    <hr>
+    <table id="tabelaResultado">
+        <thead class="thead"> 
+            <tr>
+            <th id="tiposValores" scope="tabela">x1</th>
+            <th id="tiposValores" scope="tabela">P(x)</th>
+            <th id="tiposValores" scope="tabela">f(xi)</th>
+            <th id="tiposValores" scope="tabela">(x, y)</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
 </body>
 </html>
