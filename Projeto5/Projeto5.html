@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Projeto5.css" rel="stylesheet">
+    <script type="text/javascript" src="Projeto5.js"></script>
+    <title>Projeto 5</title>
+</head>
+<body>
+    <div id="cabecalho">
+        <h1 id="titulo">Projeto 05 - Regra do Trapézio</h1>
+        <p id="grupo">|| Alunas(o): Natalia Kahori Kaneshima, Rebeca Emi Ito & Wellington Joji Endo || Matéria de Calculos Numéricos - Professora: Tânia Camila ||</p>
+    </div>
+
+    </br>
+    <label id = "entradaX" for="x5">f(x) =
+        <input type="number" id="x5" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">x⁵
+    </label>
+    <label id = "entradaX" for="x4"> + 
+        <input type="number" id="x4" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">x⁴
+    </label>
+    <label id = "entradaX" for="x3"> + 
+        <input type="number" id="x3" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">x³
+    </label>
+    <label id = "entradaX" for="x2"> + 
+        <input type="number" id="x2" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">x²
+    </label>
+    <label id = "entradaX" for="x1"> + 
+        <input type="number" id="x1" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">x
+    </label>
+    <label id = "entradaX" for="c"> + 
+        <input type="number" id="c" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">
+    </label>
+    </br></br>
+
+    <label id = "entradaX" for="a">a: 
+        <input type="number" id="a" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">
+    </label>
+    <label id = "entradaX" for="b">b: 
+        <input type="number" id="b" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">
+    </label>
+    <label id = "entradaX" for="n">n: 
+        <input type="number" id="n" name="funcao" style="width: 50px; height: 25px; font-size: 20px;" value="-2">
+    </label>
+    </br></br>
+
+    <button onclick="Calcular()" id="calc-but">Calcular</button>
+    <p id="resultado">Resultado</p>
+    <p id="teste"></p>
+    <hr>
+    <table id="tabelaResultado">
+        <thead class="thead"> 
+            <tr>
+            <th id="tiposValores" scope="tabela">x1</th>
+            <th id="tiposValores" scope="tabela">P(x)</th>
+            <th id="tiposValores" scope="tabela">f(xi)</th>
+            <th id="tiposValores" scope="tabela">(x, y)</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+</body>
+</html>
