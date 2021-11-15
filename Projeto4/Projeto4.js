@@ -31,25 +31,25 @@ function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
     //descobre x
     for (let i = 0; i <= n; i++) {
         if (i == 0){
-            x = a;
+            x = parseFloat(a);
             arrX.push(x)
         }else{
-            x = x + altura
+            x = parseFloat(x) + parseFloat(altura);
             arrX.push(x)
         }
     }
 
     //descobre y
     for (let k = 0; k < arrX.length; k++){
-        y5 = arrX[k] * (xCinco ^ 5);
-        y4 = arrX[k] * (xQuatro ^ 4);
-        y3 = arrX[k] * (xTres ^ 3);
-        y2 = arrX[k] * (xDois ^ 2);
-        y = arrX[k] * xUm;
-        totalY = y5 + y4 + y3 + y2 + y + c;
+        y5 = parseFloat(Math.pow(arrX[k], 5) * xCinco);
+        y4 = parseFloat(Math.pow(arrX[k], 4) * xQuatro);
+        y3 = parseFloat(Math.pow(arrX[k], 3) * xTres);
+        y2 = parseFloat(Math.pow(arrX[k], 2) * xDois);
+        y = parseFloat(arrX[k] * xUm);
+        totalY = y5 + y4 + y3 + y2 + y + parseFloat(c);
         arrY.push(totalY);
     }
-
+    
     //altura total
     alturaTotal = altura / 2 * arrY[0]
     
@@ -57,18 +57,19 @@ function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
     for (let j = 1; j < arrY.length - 1; j++) {
         somaArrY += arrY[j];
     }
-
+    
     //erro
     erro = alturaTotal - resultadoLog;
-
+    
     //erro%
     erroCento = (erro / resultadoLog) * 100
-
+    
     for (var l = 0; l < arrX.length; l++){
         var xr = arrX[l];
         var yr = arrY[l];
         addNaTabela(xr, yr, erro, erroCento)
     }
+    //document.getElementById("teste").innerHTML = y2;
 }
 
 function addNaTabela(x, y, erro, erroCento){
