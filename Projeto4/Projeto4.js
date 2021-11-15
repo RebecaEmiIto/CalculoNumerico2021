@@ -10,12 +10,47 @@ function Calcular(){
     const a = document.getElementById("a").value; /* ponto a (início do intervalo) */
     const b = document.getElementById("b").value; /* ponto b (final do intervalo) */
     const n = document.getElementById("n").value; /* quantidade de intervalos */
-    var altura = (b - a) / n;
+
 
     
 }
 
-function regraTrapezio(){
+function regraTrapezio(b, a, n){
+    var altura = (b - a) / n;
+    var x;
+    var arrX = [];
+    var arrY = [];
+    var resultadoLog;   
+    var alturaTotal;
+    var erro;
+    var erroCento;
+
+    resultadoLog = Math.log(b) - Math.log(a)
+
+    //descobre x
+    for (let i = 0; i <= n; i++) {
+        if (i == 0){
+            x = a;
+            arrX.push(x)
+        }else{
+            x = x + altura
+            arrX.push(x)
+        }
+    }
+
+    //descobre y
+
+    //altura total
+    alturaTotal = altura / 2 * arrY[0]
+    for (let j = 1; j < arrY.length - 1; j++) {
+        //somar arrY
+    }
+
+    //erro
+    erro = alturaTotal - resultadoLog;
+
+    //erro%
+    erroCento = (erro / resultadoLog) * 100
 }
 
 /**
