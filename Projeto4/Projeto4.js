@@ -1,7 +1,7 @@
 function Calcular(){
     /* função */
     const xCinco = document.getElementById("x5").value;
-    const yQuatro = document.getElementById("x4").value;
+    const xQuatro = document.getElementById("x4").value;
     const xTres = document.getElementById("x3").value;
     const xDois = document.getElementById("x2").value;
     const xUm = document.getElementById("x1").value;
@@ -11,15 +11,16 @@ function Calcular(){
     const b = document.getElementById("b").value; /* ponto b (final do intervalo) */
     const n = document.getElementById("n").value; /* quantidade de intervalos */
 
-
-    
+    regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c);
 }
 
-function regraTrapezio(b, a, n){
+
+function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
     var altura = (b - a) / n;
     var x;
     var arrX = [];
     var arrY = [];
+    var somaArrY = 0;
     var resultadoLog;   
     var alturaTotal;
     var erro;
@@ -39,11 +40,22 @@ function regraTrapezio(b, a, n){
     }
 
     //descobre y
+    for (let k = 0; k < arrX.length; k++){
+        y5 = arrX[k] * (xCinco ^ 5);
+        y4 = arrX[k] * (xQuatro ^ 4);
+        y3 = arrX[k] * (xTres ^ 3);
+        y2 = arrX[k] * (xDois ^ 2);
+        y = arrX[k] * xUm;
+        totalY = y5 + y4 + y3 + y2 + y + c;
+        arrY.push(totalY);
+    }
 
     //altura total
     alturaTotal = altura / 2 * arrY[0]
+    
+    //somar arrY
     for (let j = 1; j < arrY.length - 1; j++) {
-        //somar arrY
+        somaArrY += arrY[j];
     }
 
     //erro
