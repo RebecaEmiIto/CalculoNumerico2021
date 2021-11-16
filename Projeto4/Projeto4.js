@@ -14,7 +14,6 @@ function Calcular(){
     regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c);
 }
 
-
 function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
     var altura = (b - a) / n;
     var x;
@@ -50,14 +49,17 @@ function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
         arrY.push(totalY);
     }
     
-    //altura total
-    alturaTotal = altura / 2 * arrY[0]
     
+    alturaTotal = parseFloat(altura / 2);
+
     //somar arrY
     for (let j = 1; j < arrY.length - 1; j++) {
         somaArrY += arrY[j];
     }
-    
+
+    //altura final
+    alturaTotal = alturaTotal * (arrY[0] + (2 * parseFloat(somaArrY)) + parseFloat(arrY[arrY.length - 1]));
+
     //erro
     erro = alturaTotal - resultadoLog;
     
@@ -69,7 +71,8 @@ function regraTrapezio(a, b, n, xCinco, xQuatro, xTres, xDois, xUm, c){
         var yr = arrY[l];
         addNaTabela(xr, yr, erro, erroCento)
     }
-    //document.getElementById("teste").innerHTML = y2;
+    
+    document.getElementById("teste").innerHTML = alturaTotal;
 }
 
 function addNaTabela(x, y, erro, erroCento){
